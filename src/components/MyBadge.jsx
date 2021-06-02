@@ -2,16 +2,14 @@
 // receives a text and a color as props.
 // This component should render a Badge react-bootstrap
 // component with those properties.
-import { Component } from "react";
-class MyBadge extends Component {
-  state = {};
-  render() {
-    return (
-      <div>
-        <h1>To be a badge</h1>
-      </div>
-    );
-  }
-}
+import { Badge } from "react-bootstrap";
+
+const MyBadge = ({ text, color }) => {
+  return (
+    <div>
+      <Badge variant={color}>{text}</Badge>
+    </div>
+  );
+};
 
 export default MyBadge;

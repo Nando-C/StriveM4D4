@@ -3,16 +3,14 @@
 // text should be presented inside an
 // Alert of type danger.
 import { Component } from "react";
-import {Alert} from 'react-bootstrap'
+import { Alert } from "react-bootstrap";
 
 class WarningSign extends Component {
   state = {};
   render() {
     return (
       <div>
-        <Alert variant='danger'>
-            {this.props}
-        </Alert>
+        <Alert variant="danger">{this.props.msg}</Alert>
       </div>
     );
   }

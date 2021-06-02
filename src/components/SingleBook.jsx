@@ -6,10 +6,10 @@
 
 /* book json can be found in data folder */
 
-const SingleBook = () => {
+const SingleBook = ({ book }) => {
   return (
     <div>
-      <h1>Single book</h1>
+      <h1>{book.title}</h1>
     </div>
   );
 };
