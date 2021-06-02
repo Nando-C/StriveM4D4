@@ -4,9 +4,9 @@
 // component with those properties.
 import { Badge } from "react-bootstrap";
 
-const MyBadge = ({ text, color }) => {
+const MyBadge = ({ text, color, style }) => {
   return (
-    <div>
+    <div style={style}>
       <Badge variant={color}>{text}</Badge>
     </div>
   );

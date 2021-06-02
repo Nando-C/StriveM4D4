@@ -5,9 +5,9 @@
 // book files we gave you yesterday).
 
 /* book json can be found in data folder */
-import {Card} from "react-bootstrap"
-import MyBadge from "./MyBadge"
-import {Component} from 'react'
+import { Card } from "react-bootstrap";
+import MyBadge from "./MyBadge";
+import { Component } from "react";
 
 // const SingleBook = ({ book }) => {
 //   return (
@@ -29,26 +29,36 @@ import {Component} from 'react'
 // export default SingleBook;
 
 class SingleBook extends Component {
-  state = { 
-    myStyle : { color: 'red' },
-    // book : this.props.book
-    }
-  render() { 
-    return ( 
-        <div>
+  state = {
+    //
+  };
+  render() {
+    const mystyle = {
+      position: "absolute",
+      top: "20%",
+      right: "0",
+    };
+    return (
+      <div>
         <Card>
-          <Card.Img variant="top" src={this.props.book.img} style={{height: '300px'}} />
-          <MyBadge style={this.state.myStyle} text={this.props.book.price} color='warning' />
+          <Card.Img
+            variant="top"
+            src={this.props.book.img}
+            style={{ height: "300px" }}
+          />
+          <MyBadge
+            style={mystyle}
+            text={this.props.book.price}
+            color="warning"
+          />
           <Card.Body>
             <Card.Title>{this.props.book.title}</Card.Title>
-            <Card.Text>
-              {this.props.book.category}
-            </Card.Text>
+            <Card.Text>{this.props.book.category}</Card.Text>
           </Card.Body>
         </Card>
       </div>
-     );
+    );
   }
 }
- 
+
 export default SingleBook;
