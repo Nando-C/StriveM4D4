@@ -30,7 +30,7 @@ import { Component } from "react";
 
 class SingleBook extends Component {
   state = {
-    //
+    selected: false
   };
   render() {
     const mystyle = {
@@ -39,9 +39,14 @@ class SingleBook extends Component {
       right: "0",
     };
     return (
-      <div>
-        <Card>
+      // <div>
+        <Card 
+          className='h-100'
+          onClick={() => this.setState({selected: !this.state.selected})}
+          style={{transform: this.state.selected ? 'scale(0.8)' : 'none'}}
+        >
           <Card.Img
+            className="w-100"
             variant="top"
             src={this.props.book.img}
             style={{ height: "300px" }}
@@ -56,7 +61,7 @@ class SingleBook extends Component {
             <Card.Text>{this.props.book.category}</Card.Text>
           </Card.Body>
         </Card>
-      </div>
+      // </div>
     );
   }
 }
