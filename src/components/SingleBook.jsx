@@ -5,9 +5,10 @@
 // book files we gave you yesterday).
 
 /* book json can be found in data folder */
+import { Component } from "react";
 import { Card } from "react-bootstrap";
 import MyBadge from "./MyBadge";
-import { Component } from "react";
+import CommentsList from "./CommentsList";
 
 // const SingleBook = ({ book }) => {
 //   return (
@@ -30,7 +31,8 @@ import { Component } from "react";
 
 class SingleBook extends Component {
   state = {
-    selected: false
+    selected: false,
+    comments: [],
   };
   render() {
     const mystyle = {
@@ -39,11 +41,10 @@ class SingleBook extends Component {
       right: "0",
     };
     return (
-      // <div>
         <Card 
           className='h-100'
           onClick={() => this.setState({selected: !this.state.selected})}
-          style={{transform: this.state.selected ? 'scale(0.8)' : 'none'}}
+          style={{transform: this.state.selected ? 'scale(0.9)' : 'none'}}
         >
           <Card.Img
             className="w-100"
@@ -60,9 +61,26 @@ class SingleBook extends Component {
             <Card.Title>{this.props.book.title}</Card.Title>
             <Card.Text>{this.props.book.category}</Card.Text>
           </Card.Body>
+          {this.state.selected && <CommentsList comments={this.state.comments}/>}
         </Card>
-      // </div>
     );
+  }
+
+  
+  componentDidMount = async () => {
+    const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2Y4MWNlYWY0ODAwMTVjOTE4NmEiLCJpYXQiOjE2MjIwMzIyNTcsImV4cCI6MTYyMzI0MTg1N30.COuaWwE7g5o-UfUez4tVCPw0zZc5llB7Jqgsp37LrSA'
+    const apiUrl = 'https://striveschool-api.herokuapp.com/api/comments/'
+
+    const response = await fetch(apiUrl + this.props.book.asin, {
+      headers: {
+        "Authorization": `Bearer ${apiToken}`
+      }
+    })
+    const userComments = await response.json()
+    console.log(userComments)
+    this.setState({
+      comments: userComments
+    })
   }
 }
 

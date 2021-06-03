@@ -14,7 +14,7 @@ class BookList extends Component {
       <Container> 
         <Row>
           <Col>
-            <Form.Group controlId="formGroupEmail">
+            <Form.Group className='mt-4' controlId="formGroupEmail">
               {/* <Form.Label>Search</Form.Label> */}
               <Form.Control type="text" placeholder="Search Book" value={this.state.searchQuery} onChange={e => this.setState({searchQuery: e.target.value})}/>
             </Form.Group>
