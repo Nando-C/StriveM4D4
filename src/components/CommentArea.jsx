@@ -14,7 +14,7 @@ class CommentArea extends Component {
         // const handleShow = () => setShow(true);
         return (  
             <>
-                <img className='m-5' src={this.props.book.image} alt='book cover'/>
+                <img className='m-5' src={this.props.book.img} alt='book cover'/>
                 <CommentsList comments={this.props.comments}/>
                 <AddComment book={this.props.book}/>
 

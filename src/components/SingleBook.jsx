@@ -80,6 +80,8 @@ class SingleBook extends Component {
       }
     })
     const userComments = await response.json()
+
+    console.log(apiUrl + this.props.book.asin)
     console.log(userComments)
     this.setState({
       comments: userComments

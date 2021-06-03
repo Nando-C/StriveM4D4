@@ -23,6 +23,22 @@ class AddComment extends Component {
     submitReview = async (e) => {
         e.preventDefault()
         console.log(this.state.review)
+        const apiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2Y4MWNlYWY0ODAwMTVjOTE4NmEiLCJpYXQiOjE2MjIwMzIyNTcsImV4cCI6MTYyMzI0MTg1N30.COuaWwE7g5o-UfUez4tVCPw0zZc5llB7Jqgsp37LrSA'
+        const apiUrl = 'https://striveschool-api.herokuapp.com/api/comments/'
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                body: JSON.stringify(this.state.review),
+                headers: {
+                    "Authorization": `Bearer ${apiToken}`,
+                    "Content-type": "application/json"
+                }
+            })
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+            
+        }
     }
 
     render() { 
