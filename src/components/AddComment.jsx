@@ -34,7 +34,19 @@ class AddComment extends Component {
                     "Content-type": "application/json"
                 }
             })
-            console.log(response)
+            // console.log(response)
+            if (response.ok) {
+                alert('Review Submited')
+                this.setState({
+                    review: {
+                        comment: '',
+                        rate: 'Select Rating',
+                        elementId: this.props.book.asin
+                    } 
+                })
+            } else {
+                alert('There was a problem, please try again')
+            }
         } catch (error) {
             console.log(error)
             
