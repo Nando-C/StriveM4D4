@@ -14,9 +14,9 @@ class CommentArea extends Component {
         // const handleShow = () => setShow(true);
         return (  
             <>
-                <img className='m-5' src={this.props.image}/>
+                <img className='m-5' src={this.props.book.image} alt='book cover'/>
                 <CommentsList comments={this.props.comments}/>
-                <AddComment />
+                <AddComment book={this.props.book}/>
 
             </>
             // <Modal show={show} onHide={handleClose}>

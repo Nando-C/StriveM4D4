@@ -8,7 +8,7 @@
 import { Component } from "react";
 import { Card } from "react-bootstrap";
 import MyBadge from "./MyBadge";
-import CommentsList from "./CommentsList";
+// import CommentsList from "./CommentsList";
 import CommentArea from "./CommentArea"
 
 // const SingleBook = ({ book }) => {
@@ -64,7 +64,7 @@ class SingleBook extends Component {
             <Card.Text>{this.props.book.category}</Card.Text>
           </Card.Body>
           {/* {this.state.selected && <CommentsList comments={this.state.comments}/>} */}
-          {this.state.selected && <CommentArea comments={this.state.comments} image ={this.props.book.img}/>}
+          {this.state.selected && <CommentArea comments={this.state.comments} book ={this.props.book}/>}
         </Card>
     );
   }
