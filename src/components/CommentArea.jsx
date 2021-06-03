@@ -1,6 +1,8 @@
 import { Component } from 'react'
 import CommentsList from './CommentsList'
-import { Modal, Button } from 'react-bootstrap'
+import AddComment from './AddComment'
+// import { Card, Button } from 'react-bootstrap'
+// import { Modal, Button } from 'react-bootstrap'
 
 class CommentArea extends Component {
     state = {  }
@@ -12,7 +14,10 @@ class CommentArea extends Component {
         // const handleShow = () => setShow(true);
         return (  
             <>
-            <CommentsList comments={this.props.comments}/>
+                <img className='m-5' src={this.props.image}/>
+                <CommentsList comments={this.props.comments}/>
+                <AddComment />
+
             </>
             // <Modal show={show} onHide={handleClose}>
             //     <Modal.Header closeButton>

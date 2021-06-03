@@ -44,10 +44,11 @@ class SingleBook extends Component {
     return (
         <Card 
           className='h-100'
-          onClick={() => this.setState({selected: !this.state.selected})}
-          style={{transform: this.state.selected ? 'scale(0.9)' : 'none'}}
+          // onClick={() => this.setState({selected: !this.state.selected})}
+          style={{transform: this.state.selected ? 'scale(0.99)' : 'none'}}
         >
           <Card.Img
+            onClick={() => this.setState({selected: !this.state.selected})}
             className="w-100"
             variant="top"
             src={this.props.book.img}
