@@ -15,7 +15,12 @@ class DeleteComment extends Component {
                     "Authorization": `Bearer ${apiToken}`
                 }
             })
-            console.log(response.ok)
+            // console.log(response.ok)
+            if (response.ok ){
+                alert('Comment deleted successfully')
+            } else {
+                alert('There was an error, please try againg')
+            }
         } catch (error) {
             console.log(error)
         }
@@ -25,7 +30,7 @@ class DeleteComment extends Component {
         return (  
             <>
                 <Button size='sm' variant="danger" onClick={(e) => this.deleteComment()}>
-                    Delete
+                    <small>Delete</small>
                 </Button>
             </>
         );

@@ -11,7 +11,7 @@ class AddComment extends Component {
     }
 
     inputChange = (e) => {
-        // let id = e.target.id
+        console.log(e.target.value)
         this.setState({
             review: {
                 ...this.state.review,
@@ -36,7 +36,6 @@ class AddComment extends Component {
             })
             // console.log(response)
             if (response.ok) {
-                alert('Review Submited')
                 this.setState({
                     review: {
                         comment: '',
@@ -44,6 +43,7 @@ class AddComment extends Component {
                         elementId: this.props.book.asin
                     } 
                 })
+                alert('Review Submited')
             } else {
                 alert('There was a problem, please try again')
             }
@@ -58,10 +58,10 @@ class AddComment extends Component {
             <>
                 <Form className="my-3" onSubmit={(e) => this.submitReview(e)} >
                     <Form.Group className='px-3'>
-                        <Form.Control id="comment" as="textarea" rows={3} placeholder="Write a review" onChange={e => this.inputChange(e)}/>
+                        <Form.Control id="comment" as="textarea" rows={3} placeholder="Write a review" value={this.state.review.comment} onChange={e => this.inputChange(e)}/>
                     </Form.Group>
                     <Form.Group className='px-3'>
-                        <Form.Control id="rate" size='sm' as="select"  onChange={e => this.inputChange(e)}>
+                        <Form.Control id="rate" size='sm' as="select" value={this.state.review.rate}  onChange={e => this.inputChange(e)}>
                             <option>Select Rating</option>
                             <option>1</option>
                             <option>2</option>
